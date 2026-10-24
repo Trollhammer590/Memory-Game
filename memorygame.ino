@@ -1,3 +1,21 @@
+/* Bem Vindo(a) ao meu projeto de genius game com arduino!
+Este projeto consiste em um jogo da memória onde você precisa
+clicar os botões de acordo com a cor que aparece nos leds.*/
+
+/*A sequência de cliques está conforme a sequênciados leds.
+Com isso:
+	Led Vermelho = Botão 1. 
+	Led Verde = Botão 2.
+	Led Amarelo = Botão 3. 
+O 4º botão é um botão de Start ou Reset do jogo.*/
+
+/* OBS.: O tinkercad às vezes pode não suportar o jogo no computador,
+com isso mesmo clicando o botão às vezes conta como se não fosse
+clicado.*/
+
+/* Para iniciar o jogo aperte o 4º botão. Você tem 3 chances de errar.
+Divirta-se!!!!!!!*/
+
 int ledPin[]= {8, 9, 10};
 int buttonPin[]= {11, 12, 13};
 int startButton = 5;
@@ -7,7 +25,10 @@ bool equal = true;
 int i = 0;
 int som = 4;
 int life = 0;
+<<<<<<< HEAD:memorygame.ino
 int start = 0;
+=======
+>>>>>>> 61fa062 (Version 1.2):memorygame/memorygame.ino
 int time = 1000;
 int x, y;
 int resposta[5];
@@ -27,11 +48,19 @@ void setup()
 
 void loop()
 {
+<<<<<<< HEAD:memorygame.ino
   while(start>0){
   for(x= 0; x<5; x++){
     	int a= random(3);
     	tone(4, (a+1)*100, 850);
     		delay(50);
+=======
+  while(life>0){
+  for(x= 0; x<5; x++){
+    	int a= random(3);
+    	tone(4, (a+1)*100, 850);
+    		delay(75);
+>>>>>>> 61fa062 (Version 1.2):memorygame/memorygame.ino
     	digitalWrite(ledPin[a], HIGH);
     		delay(time);
     	digitalWrite(ledPin[a], LOW);
@@ -59,6 +88,10 @@ void loop()
   	}
   
   if(y==5){
+<<<<<<< HEAD:memorygame.ino
+=======
+	    equal = true;
+>>>>>>> 61fa062 (Version 1.2):memorygame/memorygame.ino
     for(i=0; i<5; i++){
     	if(values[i] != resposta[i]){
           equal = false;
@@ -90,8 +123,12 @@ void loop()
     		digitalWrite(ledErrado, LOW);
     			delay(1000);
           		x=0; y=0;
+<<<<<<< HEAD:memorygame.ino
           		life=life-1;
           		start=start-1;
+=======
+          		life--;
+>>>>>>> 61fa062 (Version 1.2):memorygame/memorygame.ino
           if(life==0){
         			tone(som, 246, 850);
   			digitalWrite(ledPin[0], HIGH);
@@ -115,9 +152,15 @@ void loop()
   }
  }
   if(digitalRead(startButton)== HIGH){
+<<<<<<< HEAD:memorygame.ino
     start=3; 
     life=3;
     equal= true;
+=======
+    life=3;
+    equal= true;
+    time= 1000;
+>>>>>>> 61fa062 (Version 1.2):memorygame/memorygame.ino
     delay(1000);
   }
 }
